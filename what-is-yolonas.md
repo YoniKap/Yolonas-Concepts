@@ -19,10 +19,10 @@ YOLO = you only look once
 its important to note that this is not the real Paul McCartny (the real one died in 1966 and was replaced by mi6)  
 ![Alt text](image-3.png)
 
-### Object Localization
-Object localitztion will not only output the classification visual objects inside of an image
+### yolonas Is An Object Localization System
+Object localitztion will not only output the classification visual objects inside of an image <br>
 but will also output a bounding box on the object (objects position inside of an image)
-
+`unlike image classification in which the output will only contain the class of the object in the picture`
 ### Vectors
 
 Vector Of A Bounding Object:
@@ -71,8 +71,9 @@ in case an object was found within a grid-cell (sub-image in the matrix in the s
 [ Pc |  Bx  |  By  | Bw | Bh  | C1 | C2 ]
 [ 1  | 0.05 |  0.3 | 2  | 1.3 | 1  | 0  ] 
 ```                                                                                                                                       
-the data volume of a 3X3 grid  will be  7X7X8 as shown in the image below (8 is the size of ther vector)
-meaning 9 grid cells created within the splitted image on 8 elements in the vector  
+the data volume of a 3X3 grid  will be  7X7X8 as shown in the image below (8 is the size of ther vector) <br>
+meaning 9 grid cells created within the splitted image on 8 elements in the vector <br>
+`vector size = Pc  + Bx + By + Bw + Bh + the amount of classes our model is looking for`<br>
 ![Alt text](image-1.png)
 
 ### Class confidence score
@@ -101,7 +102,7 @@ The way it's done with the yolo algorithm is called none max supression.
  - you can set it to discard all predictions with a `Pc` lower than x `for example: Pc ≤ 0.6 `
  - `With The Remaining Boxes:`
    - Pick The box with the highest `Pc` 
-   - Discard any remaining box with an `*IoU ≥ X` with the box chosen in the previous step  `for example: Pc ≤ 0.6 `
+   - Discard any remaining box with an `*IoU ≥ X` with the box chosen in the previous step  `for example: Pc ≥ 0.6 `
 
 in the following image we can see an example in which a person <br> 
 gets detected multiple times by the algorithm. in order to get the most accurate output<br>
@@ -114,5 +115,7 @@ the algoritm ommited boxes that have a high IOU with the highest `Pc` box
  The iou term means the area of overlap divided by the area of union <br>
  its used in the YOLO algorithm to choose boxes to ommit from the list due to them representing the same object   
  ![Alt text](image-4.png)
+
+
 
 
