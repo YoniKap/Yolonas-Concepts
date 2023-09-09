@@ -1,5 +1,5 @@
 ### About
-yolo is an object detection deep learning algorythm first introduced in 2015(yoloV1)
+yolo is an object detection deep learning algorithm first introduced in 2015(yoloV1)
 its lastest version is yolonas
 YOLO = you only look once
 
@@ -19,11 +19,8 @@ YOLO = you only look once
 its important to note that this is not the real Paul McCartny (the real one died in 1966 and was replaced by mi6)  
 ![Alt text](image-3.png)
 
-### Classification 
-Image Classification will output the class of an object inside of an image
-
 ### Object Localization
-Object localitztion will not only output the visual objects inside of an image
+Object localitztion will not only output the classification visual objects inside of an image
 but will also output a bounding box on the object (objects position inside of an image)
 
 ### Vectors
