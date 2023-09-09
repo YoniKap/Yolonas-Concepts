@@ -116,5 +116,3 @@ the algoritm ommited boxes that have a high IOU with the highest `Pc` box
  ![Alt text](image-4.png)
 
 
-get rid of low probability predictions
-for each of the class elements in your vector use `non-max suppression` to gnerate final predictions
