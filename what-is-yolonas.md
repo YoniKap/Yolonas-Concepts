@@ -42,8 +42,9 @@ Vector Of A Bounding Object:
 *: each cell in the vector is called an element 
 
 `Pc`: probability of a class > 
--   1 : object exists therefore there is a probability of a class , 
--   0 : object does not exists therefore there is no probability of a class 
+-   1 : object exists therefore there is a probability of a class (100% probability) , 
+-   0 : object does not exists therefore there is no probability of a class (0% probability) 
+-   Decimal Values : for example if our Pc is 0.70 for a class that means 70 % probability of an object that belongs to this class  
 
 `Bx , By` : coordinates of the center of the object on x and y axes  
 
@@ -82,3 +83,38 @@ Each bounding box also has an associated confidence score, often denoted as Pc
 
 
 ### Multiple Objects Per Grid-Cell 
+in the case of multiple objects per grid cell the amount of output vectors for this paticular cell will grow accordingly
+The examples above only show one object per grid-cell , but it's possible to find more than one object per grid-cell . 
+
+in such cases the output will be 
+```
+[ Pc | Bx | By | Bw | Bh | C1 | C2 ] X (Ammount Of objects)
+```
+
+
+
+### None Max Suppression
+There is a probability of an object being detected more then once by the yolo algorithm
+and we need to remove all but one instance from our list .<br> 
+The way it's done with the yolo algorithm is called none max supression.
+`Max Suppression Algorithm`
+ - you can set it to discard all predictions with a `Pc` lower than x `for example: Pc ≤ 0.6 `
+ - `With The Remaining Boxes:`
+   - Pick The box with the highest `Pc` 
+   - Discard any remaining box with an `*IoU ≥ X` with the box chosen in the previous step  `for example: Pc ≤ 0.6 `
+
+in the following image we can see an example in which a person <br> 
+gets detected multiple times by the algorithm. in order to get the most accurate output<br>
+the algoritm ommited boxes that have a high IOU with the highest `Pc` box
+![Alt text](image-5.png)
+
+
+
+ `*IOU = Intersection over Union `
+ The iou term means the area of overlap divided by the area of union <br>
+ its used in the YOLO algorithm to choose boxes to ommit from the list due to them representing the same object   
+ ![Alt text](image-4.png)
+
+
+get rid of low probability predictions
+for each of the class elements in your vector use `non-max suppression` to gnerate final predictions
