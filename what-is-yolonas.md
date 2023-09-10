@@ -19,7 +19,7 @@ YOLO = you only look once
 its important to note that this is not the real Paul McCartny (the real one died in 1966 and was replaced by mi6)  
 ![Alt text](image-3.png)
 
-### yolonas Is An Object Localization System
+### YOLONAS Is An Object Localization Algorithm
 Object localitztion will not only output the classification visual objects inside of an image <br>
 but will also output a bounding box on the object (objects position inside of an image)
 `unlike image classification in which the output will only contain the class of the object in the picture`
@@ -41,7 +41,7 @@ Vector Of A Bounding Object:
 ```
 *: each cell in the vector is called an element 
 
-`Pc`: probability of a class > 
+`Pc`: Class Confidence score > 
 -   1 : object exists therefore there is a probability of a class (100% probability) , 
 -   0 : object does not exists therefore there is no probability of a class (0% probability) 
 -   Decimal Values : for example if our Pc is 0.70 for a class that means 70 % probability of an object that belongs to this class  
@@ -51,6 +51,9 @@ Vector Of A Bounding Object:
 `Bw ,Bh` : size of the bounding box w= width h=height
 
 `C1 , C2 ` : object class for exmp dog , human , cat ... if the class of the object in the image is C1 then the value of C1 will be 1  and vise versa
+
+![Alt text](image-6.png)
+
 
 
 ### Multiple Object Images
