@@ -26,7 +26,7 @@ but will also output a bounding box on the object (objects position inside of an
 `unlike image classification in which the output will only contain the class of the object in the picture`
 
 
-### Convolutional Nural Networks And Layers 
+### Convolutional Neural Networks And Layers 
 The image goes through a series of convolutional layers, which extract features and patterns from the image.
 In YOLO's neural network, these convolutional layers act as feature extractors. They start by capturing low-level features like edges and textures in the early layers and progress to detecting more complex and abstract features in the deeper layers. These extracted features are then used to make predictions about object bounding boxes and class labels.
 
