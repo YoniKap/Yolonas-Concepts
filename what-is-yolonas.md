@@ -1,7 +1,8 @@
 ### About
-yolo is an object detection deep learning algorithm first introduced in 2015(yoloV1)
-its lastest version is yolonas
-YOLO = you only look once
+`YOLO-NAS` is the latest release of the YOLO algorithm made by company `Deci AI`<br>
+the `YOLO` algorithm is used for object detection calassification and localization<br>
+`YOLO` was first introdced in 2016 as version `YOLOv1`
+
 
 ``Use Cases``
 - Traffic Monitoring:
@@ -17,14 +18,23 @@ YOLO = you only look once
 `heres an example of how it looks:`
 
 its important to note that this is not the real Paul McCartny (the real one died in 1966 and was replaced by mi6)  
-![Alt text](image-3.png)
+<img src="image-3.png" alt="Alt text" width="400" height="300">
 
 ### YOLONAS Is An Object Localization Algorithm
 Object localitztion will not only output the classification visual objects inside of an image <br>
 but will also output a bounding box on the object (objects position inside of an image)
 `unlike image classification in which the output will only contain the class of the object in the picture`
-### Vectors
 
+
+### Convolutional Nural Networks And Layers 
+The image goes through a series of convolutional layers, which extract features and patterns from the image.
+In YOLO's neural network, these convolutional layers act as feature extractors. They start by capturing low-level features like edges and textures in the early layers and progress to detecting more complex and abstract features in the deeper layers. These extracted features are then used to make predictions about object bounding boxes and class labels.
+
+<img src="image-7.png" alt="Alt text" width="400" height="300"><br>
+credit: https://www.youtube.com/watch?v=QzY57FaENXg
+
+### Vectors
+Vectors are the output of the CNN
 Vector Of A Bounding Object:
 
 ```
@@ -52,7 +62,7 @@ Vector Of A Bounding Object:
 
 `C1 , C2 ` : object class for exmp dog , human , cat ... if the class of the object in the image is C1 then the value of C1 will be 1  and vise versa
 
-![Alt text](image-6.png)
+<img src="image-6.png" alt="Alt text" width="400" height="300">
 
 
 
@@ -61,7 +71,7 @@ In the case of an image that contains multiple objects ,
  the YOLO algorithm will devide the image into grid cells (in simpler words the image will be divided into a matrix of sub-images) ,
 each grid cell will have its vector and the values of the variables inside of the vectors will be determined based on the objects centerpoint relatively to the borders off the grid-cell.
 
-![Alt text](image-2.png)
+<img src="image-2.png" alt="Alt text" width="400" height="300">
 
 each grid-cell will have a vector of this format:
 ```
@@ -77,7 +87,7 @@ in case an object was found within a grid-cell (sub-image in the matrix in the s
 the data volume of a 3X3 grid  will be  7X7X8 as shown in the image below (8 is the size of ther vector) <br>
 meaning 9 grid cells created within the splitted image on 8 elements in the vector <br>
 `vector size = Pc  + Bx + By + Bw + Bh + the amount of classes our model is looking for`<br>
-![Alt text](image-1.png)
+<img src="image-1.png" alt="Alt text" width="400" height="300">
 
 ### Class confidence score
 Each bounding box also has an associated confidence score, often denoted as Pc 
@@ -109,15 +119,15 @@ The way it's done with the yolo algorithm is called none max supression.
 
 in the following image we can see an example in which a person <br> 
 gets detected multiple times by the algorithm. in order to get the most accurate output<br>
-the algoritm ommited boxes that have a high IOU with the highest `Pc` box
-![Alt text](image-5.png)
+the algoritm ommited boxes that have a high IOU with the highest `Pc` box<br>
+<img src="image-5.png" alt="Alt text" width="400" height="300">
 
 
 
  `*IOU = Intersection over Union `
  The iou term means the area of overlap divided by the area of union <br>
  its used in the YOLO algorithm to choose boxes to ommit from the list due to them representing the same object   
- ![Alt text](image-4.png)
+<img src="image-4.png" alt="Alt text" width="400" height="300">
 
 
 
