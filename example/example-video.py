@@ -3,7 +3,7 @@ import torch
 
 yolo_nas_l = models.get("yolo_nas_l", pretrained_weights="coco")
 
-input_video_path = "video.mp4"
+input_video_path = "video.mp4"  
 output_video_path = "detected.mp4"
 min_confidence_threshold = 0.6
 device = 'cuda' if torch.cuda.is_available() else "cpu"     #use gpu / cpu (will default to cpu if cuda is nota available) 
